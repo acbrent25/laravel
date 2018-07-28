@@ -27,7 +27,7 @@
         <a href="{{ route('todo.completed', ['id' => $todo->id]) }}" class="button btn btn-success btn-sm"><i class="fas fa-check"></i></i></a>
     
     @else
-    <a href="" class="button btn btn-success btn-sm"><i class="fab fa-angellist"></i></a>
+    <a href="{{ route('todo.not_complete', ['id' => $todo->id]) }}" class="button btn btn-success btn-sm"><i class="fab fa-angellist"></i></a>
 
     
 

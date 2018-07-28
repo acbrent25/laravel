@@ -48,3 +48,7 @@ Route::get('/todo/completed/{id}', [
   'as'  => 'todo.completed'
 ]);
 
+Route::get('/todo/not_complete/{id}', [
+  'uses' => 'TodosController@not_complete',
+  'as'  => 'todo.not_complete'
+]);
