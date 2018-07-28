@@ -63,6 +63,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .btn-danger {
+              float: right;
+              margin-left: 20px;
+            }
         </style>
     </head>
     <body>
@@ -70,7 +75,7 @@
 
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md text-left">
                     @yield('content')
                 </div>
 
