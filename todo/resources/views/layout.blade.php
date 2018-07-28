@@ -66,9 +66,9 @@
                 margin-bottom: 30px;
             }
 
-            .btn-danger, .btn-success {
+            .btn-danger, .btn-success, .btn-warning {
               float: right;
-              margin-left: 20px;
+              margin-left: 5px;
             }
         </style>
     </head>
