@@ -75,16 +75,20 @@
         <div class="container my-5">
           <div class="row">
 
+            @if(Auth::check())
+            
             <div class="col-lg-4">
                 <ul class="list-group">
                   <li class="list-group-item">
                     <a href="/home">Home</a>
                   </li>
                   <li class="list-group-item">
-                    <a href="/post/create">Create New Post</a>
+                    <a href="{{ route('post.create') }}">Create New Post</a>
                   </li>
                 </ul>
             </div>
+
+            @endif
 
             <div class="col lg-8">
               @yield('content')

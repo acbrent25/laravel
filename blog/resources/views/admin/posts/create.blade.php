@@ -12,7 +12,7 @@
     </div>
     
     <div class="card-body">
-      <form action="/post/store" method="post">
+      <form action="{{ route('post.store') }}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">
