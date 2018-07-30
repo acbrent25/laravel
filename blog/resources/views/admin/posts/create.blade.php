@@ -2,6 +2,18 @@
 
 @section('content')
 
+  @if(count($errors) > 0)
+
+    <ul class="list-group">
+      @foreach($errors->all() as $error)
+        <li class="list-group-item text-danger">
+          {{ $error }}
+        </li>
+      @endforeach
+    </ul>
+
+  @endif
+
   <h2 class="text-center">Create New Post</h2>
 
   <div class="card">
@@ -12,7 +24,7 @@
     </div>
     
     <div class="card-body">
-      <form action="{{ route('post.store') }}" method="post">
+      <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group">
