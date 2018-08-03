@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use Session;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -67,7 +68,7 @@ class PostsController extends Controller
 
 
 
-        dd($request->all());
+        // dd($request->all());
     }
 
     /**
