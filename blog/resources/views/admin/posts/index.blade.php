@@ -19,7 +19,7 @@
         @foreach($posts as $post)
 
           <tr>
-            <td>Image</td>
+            <td><img src="{{ $post->featured }}" alt="{{ $post->title }}" width="100"></td>
             <td>{{ $post->title }}</td>
             <td>edit</td>
             <td>delete</td>
