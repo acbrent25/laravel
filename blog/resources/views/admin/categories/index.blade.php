@@ -21,13 +21,13 @@
               {{ $category->name }}
             </td>
             <td>
-              <a href="{{ route('category.edit', ['id' => $category->id] )}}" class="btn btn-xs btn-info fas fa-edit">
-                  Edit
+              <a href="{{ route('category.edit', ['id' => $category->id] )}}" class="text-info">
+                  <i class="fas fa-edit"></i>
               </a>
             </td>
             <td>
-              <a href="{{ route('category.delete', ['id' => $category->id] )}}" class="btn btn-xs btn-danger">
-                Delete
+              <a href="{{ route('category.delete', ['id' => $category->id] )}}" class="text-danger">
+              <i class="fas fa-trash-alt"></i>
               </a>
             </td>
           </tr>
