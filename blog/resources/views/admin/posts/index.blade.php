@@ -22,7 +22,9 @@
             <td><img src="{{ $post->featured }}" alt="{{ $post->title }}" width="100"></td>
             <td>{{ $post->title }}</td>
             <td>edit</td>
-            <td>delete</td>
+            <td>
+              <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+            </td>
           </tr>
 
         @endforeach
