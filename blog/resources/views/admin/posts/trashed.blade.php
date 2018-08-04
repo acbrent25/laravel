@@ -10,7 +10,8 @@
           <th> Image </th>
           <th> Title</th>
           <th> Edit</th>
-          <th> Trash</th>
+          <th> Resore</th>
+          <th> Delete</th>
         </tr>
       </thead>
 
@@ -23,7 +24,10 @@
             <td>{{ $post->title }}</td>
             <td>edit</td>
             <td>
-              <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+              <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="text-success"><i class="fas fa-battery-full"></i></a>
+            </td>
+            <td>
+              <a href="{{ route('post.kill', ['id' => $post->id]) }}" class="text-danger"><i class="fas fa-battery-empty"></i></a>
             </td>
           </tr>
 

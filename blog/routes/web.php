@@ -25,7 +25,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'uses' => 'HomeController@index',
     'as'  => 'home'
   ]);
-
+  
+  // ----------------------
+  //      POST ROUTES
+  // ----------------------
+  
   Route::get('/post/create', [
     'uses' => 'PostsController@create',
     'as'  => 'post.create'
@@ -46,6 +50,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as'  => 'posts'
   ]);
 
+  Route::get('/posts/trashed', [
+    'uses' => 'PostsController@trashed',
+    'as'  => 'post.trashed'
+  ]); 
+
+  Route::get('/posts/kill/{id}', [
+    'uses' => 'PostsController@kill',
+    'as'  => 'post.kill'
+  ]); 
+
+  // ----------------------
+  //      CATEGORY ROUTES
+  // ----------------------
+  
   Route::get('/category/create', [
     'uses' => 'CategoriesController@create',
     'as'  => 'category.create'
