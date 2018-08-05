@@ -137,7 +137,7 @@ class PostsController extends Controller
 
           $featured->move('uploads/posts', $featured_new_name);
 
-          $post->featured = $featured_new_name;
+          $post->featured = 'uploads/posts/' . $featured_new_name;
 
         }
 
