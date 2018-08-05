@@ -65,6 +65,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as'  => 'post.restore'
   ]);
 
+  Route::get('/posts/edit/{id}', [
+    'uses' => 'PostsController@edit',
+    'as'  => 'post.edit'
+  ]);
+
+  Route::post('/posts/update/{id}', [
+    'uses' => 'PostsController@update',
+    'as'  => 'post.update'
+  ]);
+
   // ----------------------
   //      CATEGORY ROUTES
   // ----------------------
