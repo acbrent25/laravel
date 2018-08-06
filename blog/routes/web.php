@@ -1,5 +1,10 @@
 <?php
 
+
+Route::get('/test', function(){
+  return App\Category::find(3)->posts;
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

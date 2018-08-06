@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Faker\Generator;
 use App\Task;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
@@ -30,10 +31,10 @@ class TaskController extends Controller
 
         $task = new Task();
         $task->title = $faker->sentence(1);
-        // $task->priority = $faker->boolean ? 'low' : 'high';
-        // $task->save();
+        $task->priority = $faker->boolean ? 'low' : 'high';
+        $task->save();
 
-        return response($task->jsonSerialize());
+        return response($task->jsonSerialize(), Response::HTTP_CREATED);
 
     }
 

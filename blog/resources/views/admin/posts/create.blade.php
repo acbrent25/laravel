@@ -34,6 +34,12 @@
           
           </select>
         </div>
+
+        <div class="input-group">
+        
+              <input type="checkbox" aria-label="Checkbox for following text input">
+        </div>
+
         <div class="form-group">
           <label for="content">Content</label>
           <textarea id="content" cols="5" rows="5" name="content" class="form-control"></textarea>
