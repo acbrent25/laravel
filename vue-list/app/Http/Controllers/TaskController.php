@@ -15,9 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
-
-        return 'Its Working';
+        return response(Task::all()->jsonSerialize(), Response::HTTP_OK);
     }
 
     /**
@@ -46,7 +44,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $task = new Task();
+      $task->title = $request->title;
+      $task->priority = $request->priority;
+      $task->save();
+
+      return response($task->jsonSerialize(), Response::HTTP_CREATED);
     }
 
     /**
@@ -89,8 +93,9 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy($id)
     {
-        //
+        Task::destroy($id);
+        return response(null, Response::HTTP_OK);
     }
 }
