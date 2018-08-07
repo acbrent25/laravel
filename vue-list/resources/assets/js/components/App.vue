@@ -1,20 +1,17 @@
 <template>
 
   <div class="app-component">
-    <p>APP</p>
+    <p>Component Working</p>
   </div>
 
 </template>
 
 <script>
 
-  export deafault{
-
-      data(){
-        return{
-
+  export default {
+        mounted() {
+            console.log('Component mounted.')
         }
-      }
   }
 </script>
 

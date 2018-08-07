@@ -8,7 +8,7 @@
 
 <script>
 
-  export deafault{
+  export default{
 
       data(){
         return{
