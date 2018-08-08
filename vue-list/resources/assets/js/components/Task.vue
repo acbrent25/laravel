@@ -1,8 +1,12 @@
 <template>
 
-  <div class="task-component">
-      <p>TASk</p>
-  </div>
+
+        <tr>
+          <th scope="row">{{ task.title }}</th>
+          <td>{{ task.priority }}</td>
+          <td> <button class="btn btn-danger">Remove</button> </td>
+        </tr>
+ 
 
 </template>
 
@@ -14,7 +18,10 @@
         return{
 
         }
-      }
+      },
+
+      props: ['task']
+    
   }
 </script>
 
