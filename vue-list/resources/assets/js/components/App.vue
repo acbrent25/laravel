@@ -1,7 +1,7 @@
 <template>
 
   <div class="app-component">
-    <p>Component Working</p>
+    <p>{{ message }}</p>
   </div>
 
 </template>
@@ -9,8 +9,14 @@
 <script>
 
   export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+
+          return{
+
+            message: 'Hello From Here'
+            
+          }
+
         }
   }
 </script>

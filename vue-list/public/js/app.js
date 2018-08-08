@@ -13906,10 +13906,7 @@ window.Vue = __webpack_require__(36);
 Vue.component('app', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app',
-  components: {
-    App: App
-  }
+  el: '#app'
 });
 
 /***/ }),
@@ -47267,7 +47264,7 @@ exports = module.exports = __webpack_require__(42)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47741,9 +47738,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
+  data: function data() {
+
+    return {
+
+      message: 'Hello From Here'
+
+    };
+  }
 });
 
 /***/ }),
@@ -47754,18 +47756,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "app-component" }, [
+    _c("p", [_vm._v(_vm._s(_vm.message))])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "app-component" }, [
-      _c("p", [_vm._v("Component Working")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
