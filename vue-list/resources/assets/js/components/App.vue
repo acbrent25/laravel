@@ -5,6 +5,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">ID</th>
           <th scope="col">Task Title</th>
           <th scope="col">Priority</th>
           <th scope="col">Action</th>
@@ -42,17 +43,33 @@ import TaskComponent from './Task.vue';
   export default {
         data() {
           return{
-            tasks: [
-              { id:1, title: 'Task 1', priority: 'High'},
-              { id:2, title: 'Task 2', priority: 'Medium'},
-              { id:3, title: 'Task 3', priority: 'High'},
-              { id:4, title: 'Task 4', priority: 'Low'}
-            ],
+            tasks: [],
             message: 'HELLO FROM HERE'
           }
         },
-        components: {TaskComponent}
+
+        methods: {
+          getTasks(){
+            window.axios.get('api/tasks').then(({data})=>{
+
+              data.forEach(task=>{
+                this.tasks.push(task)
+              });
+
+            });
+          }
+        },
+
+        created(){
+          this.getTasks();
+        },
+
+        components: {
+          TaskComponent
+        }
+      
   }
+
 </script>
 
 <style>

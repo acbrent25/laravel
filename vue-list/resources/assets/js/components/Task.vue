@@ -2,7 +2,8 @@
 
 
         <tr>
-          <th scope="row">{{ task.title }}</th>
+          <td>{{ task.id }}</td>
+          <td>{{ task.title }}</td>
           <td>{{ task.priority }}</td>
           <td> <button class="btn btn-danger">Remove</button> </td>
         </tr>
