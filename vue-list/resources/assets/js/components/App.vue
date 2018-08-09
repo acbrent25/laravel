@@ -27,7 +27,7 @@
           <td> <button @click="store" class="btn btn-primary">Add</button> </td>
         </tr>
       <tbody>
-        <TaskComponent v-for="task in tasks" :key="task.id" :task="task"></TaskComponent>
+        <TaskComponent v-for="task in tasks" :key="task.id" :task="task" @delete="remove"></TaskComponent>
       </tbody>
     </table>
 
@@ -62,9 +62,24 @@ import TaskComponent from './Task.vue';
           },
 
           store(){
-            console.log(this.task.priority)
+            
+            window.axios.post('/api/tasks', this.task).then(savedTask => {
+              // push data into array
+              this.tasks.push(savedTask.data);
+              // empty title after save
+              this.task.title = '';
+            });
+
+          },
+
+          remove(id){
+            
+            window.axios.delete(`/api/tasks/${id}`).then(() =>{
+              let index = this.tasks.findIndex(task => task.id === id);
+              this.tasks.splice(index, 1);
+            });
           }
-          
+
         },
 
         created(){
