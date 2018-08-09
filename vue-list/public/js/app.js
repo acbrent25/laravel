@@ -47683,7 +47683,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47775,7 +47775,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       tasks: [],
-      message: 'HELLO FROM HERE'
+      task: {
+        title: '',
+        priority: ''
+      }
     };
   },
 
@@ -47787,11 +47790,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       window.axios.get('api/tasks').then(function (_ref) {
         var data = _ref.data;
 
-
         data.forEach(function (task) {
           _this.tasks.push(task);
         });
       });
+    },
+    store: function store() {
+      console.log(this.task.priority);
     }
   },
 
@@ -47977,7 +47982,81 @@ var render = function() {
     _c("table", { staticClass: "table" }, [
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c("tr", [
+        _c("td", [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.task.title,
+                expression: "task.title"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", id: "task" },
+            domProps: { value: _vm.task.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.task, "title", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.task.priority,
+                  expression: "task.priority"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "select", id: "select" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.task,
+                    "priority",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "Low" } }, [_vm._v("Low")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Medium" } }, [_vm._v("Medium")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "High" } }, [_vm._v("High")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("td", [
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", on: { click: _vm.store } },
+            [_vm._v("Add")]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "tbody",
@@ -48002,40 +48081,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Priority")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", id: "task" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("td", [
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { name: "select", id: "select" }
-          },
-          [
-            _c("option", { attrs: { value: "Low" } }, [_vm._v("Low")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Medium" } }, [_vm._v("Medium")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "High" } }, [_vm._v("High")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("td", [
-        _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Add")])
       ])
     ])
   }

@@ -13,18 +13,18 @@
       </thead>
         <tr>
           <td>
-            <input type="text" id="task" class="form-control">
+            <input v-model="task.title" type="text" id="task" class="form-control">
           </td>
           
           <td>
-            <select name="select" id="select" class="form-control">
+            <select v-model="task.priority" name="select" id="select" class="form-control">
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
             </select>
           </td>
 
-          <td> <button class="btn btn-primary">Add</button> </td>
+          <td> <button @click="store" class="btn btn-primary">Add</button> </td>
         </tr>
       <tbody>
         <TaskComponent v-for="task in tasks" :key="task.id" :task="task"></TaskComponent>
@@ -44,20 +44,27 @@ import TaskComponent from './Task.vue';
         data() {
           return{
             tasks: [],
-            message: 'HELLO FROM HERE'
+            task: {
+              title: '',
+              priority: ''
+            }
           }
         },
 
         methods: {
+
           getTasks(){
             window.axios.get('api/tasks').then(({data})=>{
-
               data.forEach(task=>{
                 this.tasks.push(task)
               });
-
             });
+          },
+
+          store(){
+            console.log(this.task.priority)
           }
+          
         },
 
         created(){
