@@ -47683,7 +47683,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47798,12 +47798,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     store: function store() {
       var _this2 = this;
 
-      window.axios.post('/api/tasks', this.task).then(function (savedTask) {
-        // push data into array
-        _this2.tasks.push(savedTask.data);
-        // empty title after save
-        _this2.task.title = '';
-      });
+      // Validate
+      if (this.checkInputs()) {
+
+        window.axios.post('/api/tasks', this.task).then(function (savedTask) {
+          // push data into array
+          _this2.tasks.push(savedTask.data);
+          // empty title after save
+          _this2.task.title = '';
+          _this2.task.priority = '';
+        });
+      }
+    },
+    checkInputs: function checkInputs() {
+      if (this.task.title && this.task.priority) return true;
     },
     remove: function remove(id) {
       var _this3 = this;

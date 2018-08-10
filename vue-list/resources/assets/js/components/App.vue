@@ -62,14 +62,23 @@ import TaskComponent from './Task.vue';
           },
 
           store(){
-            
-            window.axios.post('/api/tasks', this.task).then(savedTask => {
-              // push data into array
-              this.tasks.push(savedTask.data);
-              // empty title after save
-              this.task.title = '';
-            });
+            // Validate
+            if(this.checkInputs()){
 
+              window.axios.post('/api/tasks', this.task).then(savedTask => {
+                // push data into array
+                this.tasks.push(savedTask.data);
+                // empty title after save
+                this.task.title = '';
+                this.task.priority = '';
+              });
+
+            }
+
+          },
+
+          checkInputs(){
+            if(this.task.title && this.task.priority) return true;
           },
 
           remove(id){
