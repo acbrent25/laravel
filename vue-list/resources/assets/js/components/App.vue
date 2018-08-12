@@ -15,6 +15,9 @@
       </thead>
         <tr>
           <td>
+            
+          </td>
+          <td>
             <input v-model="task.title" type="text" id="task" class="form-control">
           </td>
           

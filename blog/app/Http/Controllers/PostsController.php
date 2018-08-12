@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\Tag;
 use Session;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,8 @@ class PostsController extends Controller
 
         }
 
-        return view('admin.posts.create')->with('categories', $categories);
+        return view('admin.posts.create')->with('categories', $categories)
+                                         ->with('tags', Tag::all());
     }
 
     /**
@@ -52,10 +54,11 @@ class PostsController extends Controller
         //
         // dd($request->all());
         $this->validate($request, [
-          'title'     => 'required',
-          'featured'  => 'required|image',
-          'content'   => 'required',
+          'title'       => 'required',
+          'featured'    => 'required|image',
+          'content'     => 'required',
           'category_id' => 'required',
+          'tags'        => 'required',
         ]);
 
         // Get the featured image
@@ -72,8 +75,10 @@ class PostsController extends Controller
           'content'     => $request->content,
           'featured'    => 'uploads/posts/' . $featured_new_name,
           'category_id' => $request->category_id,
-          'slug'  => str_slug($request->title)
+          'slug'        => str_slug($request->title)
         ]);
+
+        $post->tags()->attach($request->tags);
         
         Session::flash('success', 'Post created successfully');
   

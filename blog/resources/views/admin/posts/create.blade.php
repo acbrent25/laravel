@@ -25,7 +25,7 @@
           <label for="featured">Featured Image</label>
           <input type="file" name="featured" class="form-control">
         </div>
-        <div class="formgroup">
+        <div class="form-group">
           <label for="category">Select a Category</label>
           <select name="category_id" id="category" class="form-control">
             @foreach($categories as $category)
@@ -35,9 +35,16 @@
           </select>
         </div>
 
-        <div class="input-group">
-        
-              <input type="checkbox" aria-label="Checkbox for following text input">
+        <div class="form-group">
+        <label for="tags">Select Tags</label>
+          @foreach($tags as $tag)
+
+            <div class="checkbox">
+              <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}"> {{ $tag->tag }}</label>
+            </div>
+
+          @endforeach
+              
         </div>
 
         <div class="form-group">

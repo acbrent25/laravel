@@ -2,7 +2,7 @@
 
 
 Route::get('/test', function(){
-  return App\Category::find(3)->posts;
+  return App\Post::find(7)->tags;
 });
 
 /*
