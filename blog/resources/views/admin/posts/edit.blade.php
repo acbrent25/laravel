@@ -36,7 +36,6 @@
 
                 @endif
                 
-                
                 >{{ $category->name }}</option>
             @endforeach
           

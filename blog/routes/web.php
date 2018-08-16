@@ -2,7 +2,7 @@
 
 
 Route::get('/test', function(){
-  return App\User::find(1)->profile;
+  return App\Profile::find(1)->user;
 });
 
 /*
@@ -154,7 +154,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as'  => 'tag.store'
   ]);
 
-  
+  // ----------------------
+  //      Users Controller
+  // ----------------------
+
+  Route::get('/users', [
+    'uses' => 'UsersController@index',
+    'as'  => 'users'
+  ]);
+
+  Route::get('/user/create', [
+    'uses' => 'UsersController@create',
+    'as'  => 'user.create'
+  ]);
+
+  Route::post('/user/store', [
+    'uses' => 'UsersController@store',
+    'as'  => 'user.store'
+  ]);
 
 });
 

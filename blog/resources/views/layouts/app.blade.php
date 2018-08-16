@@ -84,6 +84,12 @@
                     <a href="{{ route('home') }}">Home</a>
                   </li>
                   <li class="list-group-item">
+                    <a href="{{ route('users') }}">Users</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="{{ route('user.create') }}">New User</a>
+                  </li>
+                  <li class="list-group-item">
                     <a href="{{ route('categories') }}">Categories</a>
                   </li>
                   <li class="list-group-item">
