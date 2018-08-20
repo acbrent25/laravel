@@ -130,6 +130,8 @@
 
     <script src="/js/app.js"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/crud.js') }}"></script>
+    
     <script>
       @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}")

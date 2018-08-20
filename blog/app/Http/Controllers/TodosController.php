@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
-use App\Tag;
+use App\Todo;
+use Validator;
+use Response;
 
-use Session;
-
-
-class TagsController extends Controller
+class TodosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +18,7 @@ class TagsController extends Controller
     public function index()
     {
         //
-
-        return view('admin.tags.index')->with('tags', Tag::all());
+        return view('admin.todos.index')->with('todos', Todo::all());
     }
 
     /**
@@ -32,8 +29,6 @@ class TagsController extends Controller
     public function create()
     {
         //
-
-        return view('admin.tags.create');
     }
 
     /**
@@ -44,19 +39,22 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+          'name' => 'required|alpha_num',
+        );
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()) {
+            return Response::json(array(
 
-        $this->validate($request, [
-          'tag' => 'required'
-        ]);
+                    'errors' => $validator->getMessageBag()->toArray(),
+            ));
+        } else {
+            $data = new Data();
+            $data->name = $request->name;
+            $data->save();
 
-        Tag::create([
-          'tag' => $request->tag
-        ]);
-
-        Session::flash('success', 'tag created successfully');
-
-        return redirect()->route('tags');
+            return response()->json($data);
+        }
     }
 
     /**
@@ -78,9 +76,7 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::find($id);
-
-        return view('admin.tags.edit')->with('tag', $tag);
+        //
     }
 
     /**
@@ -93,17 +89,6 @@ class TagsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request, [
-          'tag' => 'required'
-        ]);
-
-        $tag = Tag::find($id);
-        $tag->tag = $request->tag;
-        $tag->save();
-
-        Session::flash('success', 'Tag Updated Successfully');
-
-        return redirect()->route('tags');
     }
 
     /**
@@ -115,10 +100,5 @@ class TagsController extends Controller
     public function destroy($id)
     {
         //
-        Tag::destroy($id);
-
-        Session::flash('success', 'tag deleted');
-
-        return redirect()->back();
     }
 }

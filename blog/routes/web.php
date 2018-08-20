@@ -183,5 +183,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as'  => 'user.not.admin'
   ]);
 
+  // ----------------------
+  //     Test Todo
+  // ----------------------
+
+  Route::get('/todos', [
+    'uses' => 'TodosController@index',
+    'as'  => 'todos'
+  ]);
+
+  Route::post('addTodos', 'TodosController@store');
+
 });
 
