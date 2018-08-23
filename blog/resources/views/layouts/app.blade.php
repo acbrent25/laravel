@@ -131,6 +131,18 @@
     <script src="/js/app.js"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script src="{{ asset('js/crud.js') }}"></script>
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+
+
+    <script type="text/javascript">
+       var url = "<?php echo route('item-ajax.index')?>";
+    </script>
+    <script src="/js/item-ajax.js"></script> 
     
     <script>
       @if(Session::has('success'))

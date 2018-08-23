@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Ajax Routes
+Route::get('manage-item-ajax', 'ItemAjaxController@manageItemAjax');
+Route::resource('item-ajax', 'ItemAjaxController');
+
 Auth::routes();
 
 
