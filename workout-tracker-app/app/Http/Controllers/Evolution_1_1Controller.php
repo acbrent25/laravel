@@ -26,6 +26,7 @@ class Evolution_1_1Controller extends Controller
     public function create()
     {
         //
+        return view('evolution.1-1.create');
     }
 
     /**
@@ -36,7 +37,27 @@ class Evolution_1_1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Evolution_1_1::Create([
+            // Reps
+            'bb_press_r_1' => $request->bb_press_r_1,
+            'bb_press_r_2' => $request->bb_press_r_2,
+            'bb_press_r_3' => $request->bb_press_r_3,
+            'bb_press_r_4' => $request->bb_press_r_4,
+            'bb_press_r_5' => $request->bb_press_r_5,
+            'bb_press_r_6' => $request->bb_press_r_6,
+            'bb_press_r_7' => $request->bb_press_r_7,
+            // Weight
+            'bb_press_w_1' => $request->bb_press_w_1,
+            'bb_press_w_2' => $request->bb_press_w_2,
+            'bb_press_w_3' => $request->bb_press_w_3,
+            'bb_press_w_4' => $request->bb_press_w_4,
+            'bb_press_w_5' => $request->bb_press_w_5,
+            'bb_press_w_6' => $request->bb_press_w_6,
+            'bb_press_w_7' => $request->bb_press_w_7,
+
+        ]);
+
     }
 
     /**

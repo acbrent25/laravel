@@ -38,7 +38,11 @@
 
   </div><!--./ card-body -->
 
+  
+  <button class="btn btn-success ml-auto" type="submit">Save Workout</button> 
 </div><!--./ card -->
+
+      
 
 </form>
 
