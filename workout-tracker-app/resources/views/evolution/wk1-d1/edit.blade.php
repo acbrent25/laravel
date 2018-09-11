@@ -4,6 +4,7 @@
 
 
 <form action="{{ route('wk1-d1.update', ['id' => $evolution_1_1->id]) }}" method="post" enctype="multipart/form-data">
+<input name="_method" type="hidden" value="PATCH">
   {{ csrf_field() }}
   <div class="card">
   
@@ -39,7 +40,7 @@
   </div><!--./ card-body -->
 
   
-  <button class="btn btn-success ml-auto" type="submit">Save Workout</button> 
+  <button class="btn btn-success ml-auto" type="submit">Update Workout</button> 
 </div><!--./ card -->
 
       

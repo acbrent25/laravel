@@ -95,7 +95,26 @@ class Evolution_1_1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $evolution_1_1 = Evolution_1_1::find($id);
+
+        $evolution_1_1->bb_press_r_1 = $request->bb_press_r_1;
+        $evolution_1_1->bb_press_r_2 = $request->bb_press_r_2;
+        $evolution_1_1->bb_press_r_3 = $request->bb_press_r_3;
+        $evolution_1_1->bb_press_r_4 = $request->bb_press_r_4;
+        $evolution_1_1->bb_press_r_5 = $request->bb_press_r_5;
+        $evolution_1_1->bb_press_r_6 = $request->bb_press_r_6;
+        $evolution_1_1->bb_press_r_7 = $request->bb_press_r_7;
+        // Weight
+        $evolution_1_1->bb_press_w_1 = $request->bb_press_w_1;
+        $evolution_1_1->bb_press_w_2 = $request->bb_press_w_2;
+        $evolution_1_1->bb_press_w_3 = $request->bb_press_w_3;
+        $evolution_1_1->bb_press_w_4 = $request->bb_press_w_4;
+        $evolution_1_1->bb_press_w_5 = $request->bb_press_w_5;
+        $evolution_1_1->bb_press_w_6 = $request->bb_press_w_6;
+        $evolution_1_1->bb_press_w_7 = $request->bb_press_w_7;
+
+        $evolution_1_1->save();
+        return redirect()->back();
     }
 
     /**
