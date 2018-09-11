@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/evolution/1-1', 'Evolution_1_1Controller');
+Route::resource('/evolution/wk1-d1', 'Evolution_1_1Controller');

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<form action="{{ route('1-1.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('wk1-d1.store') }}" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}
   <div class="card">
   
